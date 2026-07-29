@@ -1,0 +1,62 @@
+[project]
+name = "cv-screener"
+version = "0.1.0"
+description = "CV generation + RAG screening"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "ollama>=0.3.0",
+    "python-dotenv>=1.0.0",
+    "huggingface_hub>=0.24.0",
+    "jinja2>=3.1",
+    "weasyprint>=62.0",
+    "pillow>=10.0.0",
+    "faker>=24.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+rag = [
+    "pymupdf>=1.24",
+    "qdrant-client>=1.12",
+    "fastembed>=0.4",
+    "langgraph>=0.2",
+    "langchain-ollama>=0.2",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+]
+ui = ["chainlit>=1.3"]
+
+[project.scripts]
+cv-creator = "cv_screener.cv_creator.cli:main"
+cv-extract = "cv_screener.rag.cli:extract"
+cv-index = "cv_screener.rag.cli:index"
+cv-ask = "cv_screener.rag.cli:ask"
+cv-chat = "cv_screener.rag.cli:chat"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["cv_screener*"]
+
+[tool.setuptools.package-data]
+"cv_screener.cv_creator" = ["rendering/templates/**/*"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
