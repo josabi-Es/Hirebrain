@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ cv.full_name }} — CV</title>
+  <style>/*__THEME_CSS__*/</style>
+</head>
+<body class="cv cv-minimal">
+  <header class="cv-header">
+    <div class="header-top">
+      {% if photo_src %}
+      <img class="cv-photo" src="{{ photo_src }}" alt="Profile photo">
+      {% endif %}
+      <div class="header-text">
+        <h1 class="name">{{ cv.full_name }}</h1>
+        <div class="contact">
+          <span class="contact-location">{{ cv.location }}</span>
+          <span class="contact-email">{{ cv.email }}</span>
+          <span class="contact-phone">{{ cv.phone }}</span>
+        </div>
+      </div>
+    </div>
+    <hr class="header-rule">
+  </header>
+
+  <section class="section summary">
+    <h2>Summary</h2>
+    <p>{{ cv.summary }}</p>
+  </section>
+
+  <section class="section experience">
+    <h2>Experience</h2>
+    {% for job in cv.experience %}
+    <div class="experience-item">
+      <div class="experience-item-row">
+        <div class="experience-item-main">
+          <h3 class="experience-title">{{ job.job_title }}</h3>
+          <p class="experience-company">{{ job.company }}</p>
+        </div>
+        <span class="experience-dates">{{ job | format_experience_range }}</span>
+      </div>
+      {% if job.description %}
+      <p class="experience-description">{{ job.description }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="section education">
+    <h2>Education</h2>
+    {% for edu in cv.education %}
+    <div class="education-item">
+      <div class="education-item-row">
+        <div class="education-item-main">
+          <p class="education-degree">{{ edu.degree }}</p>
+          <p class="education-institution">{{ edu.institution }}</p>
+        </div>
+        <span class="education-dates">{{ edu | format_education_range }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="section skills">
+    <h2>Skills</h2>
+    <ul class="skill-list skill-list--tags">
+      {% for skill in cv.skills %}
+      <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+</body>
+</html>

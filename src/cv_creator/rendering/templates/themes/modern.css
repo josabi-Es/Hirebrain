@@ -1,0 +1,171 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+body.cv-modern {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: #1f2937;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 32%;
+  flex-shrink: 0;
+  background: #1e293b;
+  color: #f1f5f9;
+  padding: 1.5cm 1.2cm;
+  box-sizing: border-box;
+}
+
+.sidebar .name {
+  margin: 0.75rem 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.cv-photo {
+  width: 100%;
+  max-width: 140px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  border: 2px solid #334155;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.contact > span {
+  display: block;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  word-break: break-word;
+}
+
+.sidebar-section {
+  margin-bottom: 1.25rem;
+}
+
+.sidebar-section h2 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #334155;
+}
+
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.skill-list li {
+  background: #334155;
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.education-item {
+  margin-bottom: 0.75rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.education-degree {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.education-institution,
+.education-dates {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5cm 1.5cm 1.5cm 1.2cm;
+  box-sizing: border-box;
+}
+
+.section {
+  margin-bottom: 1.25rem;
+}
+
+.section h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0f766e;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid #0f766e;
+}
+
+.summary p {
+  margin: 0;
+  color: #374151;
+}
+
+.experience-item {
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid #d1fae5;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.experience-title {
+  margin: 0;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.experience-company {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f766e;
+}
+
+.experience-dates {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.experience-description {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  color: #4b5563;
+}
