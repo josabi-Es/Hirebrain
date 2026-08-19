@@ -1,0 +1,22 @@
+# Qdrant only — Ollama runs natively on the host (localhost:11434).
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.18.1
+    container_name: hirebrain_qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    environment:
+      QDRANT__SERVICE__GRPC_PORT: 6334
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+volumes:
+  qdrant_data:
