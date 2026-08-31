@@ -4,3 +4,27 @@ dist/
 build/
 *.log
 .DS_Store
+
+# Python
+__pycache__/
+*.py[oc]
+*.egg-info
+.venv
+
+# Generated artifacts
+.cache/
+.ruff_cache/
+.chainlit/
+.files/
+artifacts/
+
+# auxiliary folders
+ai-cv-screener/
+rag-powered-cv-screener/
+ai-powered-cv-screener/
+workflow.md
+
+# clade tools
+CLAUDE.md
+spec/
+.claude/

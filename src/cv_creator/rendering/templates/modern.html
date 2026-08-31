@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ cv.full_name }} — CV</title>
+  <style>/*__THEME_CSS__*/</style>
+</head>
+<body class="cv cv-modern">
+  <aside class="sidebar">
+    {% if photo_src %}
+    <img class="cv-photo" src="{{ photo_src }}" alt="Profile photo">
+    {% endif %}
+    <h1 class="name">{{ cv.full_name }}</h1>
+    <div class="contact">
+      <span class="contact-location">{{ cv.location }}</span>
+      <span class="contact-email">{{ cv.email }}</span>
+      <span class="contact-phone">{{ cv.phone }}</span>
+    </div>
+
+    <section class="sidebar-section skills">
+      <h2>Skills</h2>
+      <ul class="skill-list">
+        {% for skill in cv.skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="sidebar-section education">
+      <h2>Education</h2>
+      {% for edu in cv.education %}
+      <div class="education-item">
+        <p class="education-degree">{{ edu.degree }}</p>
+        <p class="education-institution">{{ edu.institution }}</p>
+        <p class="education-dates">{{ edu | format_education_range }}</p>
+      </div>
+      {% endfor %}
+    </section>
+  </aside>
+
+  <main class="main-content">
+    <section class="section summary">
+      <h2>Profile</h2>
+      <p>{{ cv.summary }}</p>
+    </section>
+
+    <section class="section experience">
+      <h2>Experience</h2>
+      {% for job in cv.experience %}
+      <div class="experience-item">
+        <h3 class="experience-title">{{ job.job_title }}</h3>
+        <p class="experience-company">{{ job.company }}</p>
+        <p class="experience-dates">{{ job | format_experience_range }}</p>
+        {% if job.description %}
+        <p class="experience-description">{{ job.description }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>

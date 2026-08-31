@@ -1,0 +1,126 @@
+@page {
+  size: A4;
+  margin: 1.5cm;
+}
+
+body.cv {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: #1a1a1a;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cv-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cv-header-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.cv-header .name {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #1e3a5f;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.contact > span:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.5rem;
+  color: #9ca3af;
+}
+
+.cv-photo {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  flex-shrink: 0;
+}
+
+.section {
+  margin-bottom: 1rem;
+}
+
+.section h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2563eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.experience-item,
+.education-item {
+  margin-bottom: 0.75rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.experience-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.experience-company,
+.experience-dates {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.experience-description {
+  margin: 0.35rem 0 0;
+}
+
+.education-degree {
+  margin: 0;
+}
+
+.education-institution,
+.education-dates {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0;
+}
+
+.skill-list li {
+  display: inline-block;
+}
+
+.skill-list li:not(:last-child)::after {
+  content: " | ";
+  color: #c4c4c4;
+}
